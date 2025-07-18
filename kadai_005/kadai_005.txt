@@ -1,0 +1,106 @@
+myasu@LAPTOP-ISKOJM71 MINGW64 /c/github_practice1
+$ mkdir git_challenge
+
+myasu@LAPTOP-ISKOJM71 MINGW64 /c/github_practice1
+$ ls
+git_challenge/  git_tutorial/  TEST/
+
+myasu@LAPTOP-ISKOJM71 MINGW64 /c/github_practice1
+$ cd git_challenge
+
+myasu@LAPTOP-ISKOJM71 MINGW64 /c/github_practice1/git_challenge
+$ git init
+Initialized empty Git repository in C:/github_practice1/git_challenge/.git/
+
+myasu@LAPTOP-ISKOJM71 MINGW64 /c/github_practice1/git_challenge (main)
+$ touch hello_world.txt
+
+myasu@LAPTOP-ISKOJM71 MINGW64 /c/github_practice1/git_challenge (main)
+$ ls -l
+total 0
+-rw-r--r-- 1 myasu 197609 0  7月 18 23:58 hello_world.txt
+
+myasu@LAPTOP-ISKOJM71 MINGW64 /c/github_practice1/git_challenge (main)
+$ echo "Hello,world!" > hello_world.txt
+
+myasu@LAPTOP-ISKOJM71 MINGW64 /c/github_practice1/git_challenge (main)
+$ cat hello_world
+cat: hello_world: No such file or directory
+
+myasu@LAPTOP-ISKOJM71 MINGW64 /c/github_practice1/git_challenge (main)
+$ cat hello_world.txt
+Hello,world!
+
+myasu@LAPTOP-ISKOJM71 MINGW64 /c/github_practice1/git_challenge (main)
+$ git add hello_world.txt
+warning: in the working copy of 'hello_world.txt', LF will be replaced by CRLF the next time Git touches it
+
+myasu@LAPTOP-ISKOJM71 MINGW64 /c/github_practice1/git_challenge (main)
+$ git diff --cached
+diff --git a/hello_world.txt b/hello_world.txt
+new file mode 100644
+index 0000000..1d3d0f2
+--- /dev/null
++++ b/hello_world.txt
+@@ -0,0 +1 @@
++Hello,world!
+
+myasu@LAPTOP-ISKOJM71 MINGW64 /c/github_practice1/git_challenge (main)
+$ git commit -m "hello_world.txtを追記"
+[main (root-commit) c810a6f] hello_world.txtを追記
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hello_world.txt
+
+myasu@LAPTOP-ISKOJM71 MINGW64 /c/github_practice1/git_challenge (main)
+$ git log
+commit c810a6f85f563bdafa9e6755ba552078dff99a9c (HEAD -> main)
+Author: yasuko-001 <mayumiy214@gmail.com>
+Date:   Sat Jul 19 00:01:16 2025 +0900
+
+    hello_world.txtを追記
+
+myasu@LAPTOP-ISKOJM71 MINGW64 /c/github_practice1/git_challenge (main)
+$ echo "こんにちは、世界！" >> hello_world.txt
+
+myasu@LAPTOP-ISKOJM71 MINGW64 /c/github_practice1/git_challenge (main)
+$ cat hello_world.txt
+Hello,world!
+こんにちは、世界！
+
+myasu@LAPTOP-ISKOJM71 MINGW64 /c/github_practice1/git_challenge (main)
+$ git add hello_world.txt
+warning: in the working copy of 'hello_world.txt', LF will be replaced by CRLF the next time Git touches it
+
+myasu@LAPTOP-ISKOJM71 MINGW64 /c/github_practice1/git_challenge (main)
+$ git diff --cached
+diff --git a/hello_world.txt b/hello_world.txt
+index 1d3d0f2..c40d533 100644
+--- a/hello_world.txt
++++ b/hello_world.txt
+@@ -1 +1,2 @@
+ Hello,world!
++こんにちは、世界！
+
+myasu@LAPTOP-ISKOJM71 MINGW64 /c/github_practice1/git_challenge (main)
+$ git commit -m "日本語訳を追記"
+[main 23b5eb9] 日本語訳を追記
+ 1 file changed, 1 insertion(+)
+
+myasu@LAPTOP-ISKOJM71 MINGW64 /c/github_practice1/git_challenge (main)
+$ git log
+commit 23b5eb98f6a64692146d1ddf4470e8da29c82180 (HEAD -> main)
+Author: yasuko-001 <mayumiy214@gmail.com>
+Date:   Sat Jul 19 00:02:51 2025 +0900
+
+    日本語訳を追記
+
+commit c810a6f85f563bdafa9e6755ba552078dff99a9c
+Author: yasuko-001 <mayumiy214@gmail.com>
+Date:   Sat Jul 19 00:01:16 2025 +0900
+
+    hello_world.txtを追記
+
+myasu@LAPTOP-ISKOJM71 MINGW64 /c/github_practice1/git_challenge (main)
+$ git log --oneline
+23b5eb9 (HEAD -> main) 日本語訳を追記
+c810a6f hello_world.txtを追記
